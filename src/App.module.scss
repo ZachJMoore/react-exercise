@@ -1,0 +1,126 @@
+$brandColor: #5d9fff;
+
+.buttonReset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+}
+
+.brandBackground {
+  background-color: $brandColor;
+}
+.brandColor {
+  color: $brandColor;
+}
+
+.app {
+  padding: 8px;
+}
+.header {
+  @extend .brandColor;
+}
+.main {
+}
+.errorContainer {
+  margin: 8px 0;
+}
+.errorText {
+  color: red;
+}
+.searchForm {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  & > label {
+    margin-top: 8px;
+    margin-right: 16px;
+    display: flex;
+    flex-direction: row;
+
+    & > select {
+      margin-left: 4px;
+    }
+  }
+
+  & > button {
+    @extend .brandBackground;
+    @extend .buttonReset;
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: white;
+    font-weight: bold;
+  }
+}
+.searchResultsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.listContainer {
+  flex: 1;
+  flex-direction: column;
+  margin: 0 16px;
+  min-width: 300px;
+  max-width: 100%;
+}
+.detailsContainer {
+  @extend .listContainer;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.resultsListTable {
+  width: 100%;
+}
+.row {
+  text-align: left;
+  border-bottom: #f4f4f5;
+  & > th,
+  & > td {
+    padding: 8px;
+  }
+}
+.rowHeader {
+  background-color: #f4f4f5;
+}
+.rowIsSelectable {
+  cursor: pointer;
+}
+.rowIsSelected {
+  @extend .brandColor;
+}
+.detailsItem {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  & > span,
+  & > a {
+    background-color: #f4f4f5;
+    border-radius: 8px;
+    padding: 16px 8px;
+    margin-top: 4px;
+  }
+}
