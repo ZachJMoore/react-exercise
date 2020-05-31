@@ -16,14 +16,18 @@ app.use("*", (req, res) => {
   res.status(404).sendFile(path.join(__dirname + "/build/index.html"));
 });
 
+const agentOptions = {
+  rejectUnauthorized: false,
+};
+
 function findRepresentativesByState(req, res, next) {
   const url = `http://whoismyrepresentative.com/getall_reps_bystate.php?state=${req.params.state}&output=json`;
-  request(url, handleApiResponse(res, next));
+  request({ url, agentOptions }, handleApiResponse(res, next));
 }
 
 function findSenatorsByState(req, res, next) {
   const url = `http://whoismyrepresentative.com/getall_sens_bystate.php?state=${req.params.state}&output=json`;
-  request(url, handleApiResponse(res, next));
+  request({ url, agentOptions }, handleApiResponse(res, next));
 }
 
 function handleApiResponse(res, next) {
