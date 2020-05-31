@@ -69,11 +69,11 @@ function App() {
           setResults(data.results);
         } else {
           console.log();
-          setErrorMessage(data.error);
+          setErrorMessage(JSON.stringify(data.error));
         }
       })
       .catch((error) => {
-        setErrorMessage(error);
+        setErrorMessage(JSON.stringify(error));
       });
   };
 
